@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kombiniertes Layout</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap"> <!-- Schriftart von Google Fonts -->
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.container {
+    display: flex;
+    width: 100%;
+    height: 50%;
+}
+
+
+.left-container {
+    width: 45%; /* Linker Bereich 45% */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-size: cover; /* Hintergrundbild auf die Größe des Containers skalieren */
+    background-position: center; /* Hintergrundbild leicht nach links verschieben */
+    transition: background-image 0.5s ease;
+}
+
+.right-container {
+    width: 60%; /* Rechter Bereich 55% */
+    display: flex;
+    flex-direction: column; /* Ändern der Flex-Richtung zu Spalte */
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0); /* Transparenter Hintergrund */
+    overflow: auto; /* Sicherstellen, dass der Container scrollbar ist, falls der Inhalt überläuft */
+}
+
+.search-container {
+    text-align: center;
+    padding: 20px;
+    width: 250px;
+}
+
+.title-box {
+    background-color: rgba(255, 255, 255, 0.9);
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    padding: 10px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.title-box h1 {
+    margin: 0;
+    font-size: 24px;
+    color: #333;
+}
+
+select, input[type="text"], input[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    font-family: 'Patrick Hand', cursive;
+}
+
+input[type="submit"] {
+    background-color: #4285F4;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover {
+    background-color: #357AE8;
+}
+
+/* Stil für den Buttonbereich (oben) */
+.button-container {
+    display: grid;
+    grid-template-columns: repeat(9, 100px); /* 9 Spalten */
+    grid-gap: 20px; /* Abstand zwischen Buttons */
+    justify-content: center; /* Zentriert den Grid-Container horizontal */
+    align-items: center; /* Zentriert den Grid-Container vertikal */
+    grid-auto-rows: 120px; /* Höhe der Reihen */
+    margin: 0; /* Entfernt den negativen Margin */
+}
+.button-container-oben {
+            display: grid;
+            grid-template-columns: repeat(5, 100px);
+            grid-gap: 20px;
+            justify-content: center;
+            align-items: center;
+            grid-auto-rows: 120px;
+        }
+.button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 8px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-decoration: none;
+    color: #333;
+    width: 100px; /* Breite der Buttons */
+    height: 120px; /* Höhe der Buttons */
+    transition: transform 0.3s, box-shadow 0.3s;
+    font-family: 'Patrick Hand', cursive; /* Handschrift Schriftart */
+}
+
+.button img {
+    max-width: 80px; /* Breite der Bilder */
+    max-height: 80px; /* Höhe der Bilder erhöht */
+    margin-bottom: 8px;
+}
+
+.button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* Stil für den Buttonbereich (unten) */
+.button-container-bottom {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50%; /* Höhe des unteren Layouts */
+    overflow: hidden;
+}
+
+.button-link {
+            position: absolute;
+            top: 0px;
+            left: 00px;
+            z-index: 1000; /* Sicherstellen, dass der Button über anderen Elementen liegt */
+        }
+.small-button {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background-image: url('https://i.imgur.com/6OsrJfM.png');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            text-align: center;
+            line-height: 40px;
+            text-decoration: none;
+            font-family: 'Patrick Hand', cursive;
+            font-size: 14px;
+        }
+.small-button-settings {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background-image: url('https://www.iconarchive.com/download/i95307/dtafalonso/android-l/Settings-L.512.png');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            text-align: center;
+            line-height: 40px;
+            text-decoration: none;
+            font-family: 'Patrick Hand', cursive;
+            font-size: 14px;
+        }
+.small-button-settings:hover {
+            background-color: rgba(66, 133, 244, 0.8);
+        }
+.small-button:hover {
+            background-color: rgba(66, 133, 244, 0.8);
+        }
+
+
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="button-link">
+           
+            <a href="https://sites.google.com/d/1HojbnrB9jZd7cvPhIFYqB01pAu5NcyMt/p/1VZ8Pf7GXsJKbiOCSbLKjmXdJeMyoHAZV/edit" class="small-button-settings" target="_blank"></a>
+            <a href="https://phil.maruhn.me/running-stormtrooper" class="small-button"></a>
+
+
+        </div>
+        
+        <!-- Linker Bereich (Suchfenster) -->
+        <div class="left-container">
+            <div class="search-container">
+                <div class="title-box">
+                    <h1>Suchmaschine</h1>
+                </div>
+                <form id="search-form" action="" method="get">
+                    <select name="engine" id="search-engine">
+                        <option value="https://www.google.com/search" data-bg="https://i.imgur.com/SAouih8.png">Google</option>
+                        <option value="https://www.bing.com/search" data-bg="https://i.imgur.com/pHW46ah.png">Bing</option>
+                        <option value="https://duckduckgo.com" data-bg="https://i.imgur.com/m6kvTnL.png">DuckDuckGo</option>
+                        <option value="https://search.yahoo.com/search" data-bg="https://i.imgur.com/1XCAJ8v.png">Yahoo</option>
+                        <option value="https://www.ecosia.org/search" data-bg="https://i.imgur.com/xTJN2Iu.png">Ecosia</option>
+                        <option value="https://search.aol.com/aol/search" data-bg="https://i.imgur.com/dqazwBP.png">AOL</option>
+                        <option value="https://www.startpage.com/sp/search" data-bg="https://i.imgur.com/ApGbJEd.png">Startpage</option>
+                        <option value="https://geizhals.de/?fs=" data-bg="https://i.imgur.com/ApGbJEd.png">Geizhals</option>
+                        <option value="https://www.idealo.de/preisvergleich/MainSearchProductCategory.html?q" data-bg="https://i.imgur.com/ApGbJEd.png">Idealo</option>
+                    </select>
+                    <input type="text" name="q" placeholder="Suchbegriff eingeben" required>
+                    <input type="submit" value="Suchen">
+                </form>
+            </div>
+        </div>
+
+        <!-- Rechter Bereich (Buttons Layout) -->
+        <div class="right-container">
+            <div class="button-container-oben">
+                <a href="https://dl.teamviewer.com/download/TeamViewer_Host_Setup_x64.exe?ref=https%3A%2F%2Fwww.teamviewer.com%2Fde%2Fdownload%2Fwindows%2F%3F" class="button">
+                    <img src="https://i.imgur.com/avADsFG.png" alt="Bild 1">
+                    <div>Team Viewer</div>
+                </a>
+                <a href="https://www.rmh-systemhaus.de/de/main" class="button">
+                    <img src="https://i.imgur.com/eoCvo5K.png" alt="Bild 2">
+                    <div>RMH Systemhaus</div>
+                </a>
+                <a href="https://www.wortmann.de/" class="button">
+                    <img src="https://i.imgur.com/vKbSndp.png" alt="Bild 3">
+                    <div>Wortmann</div>
+                </a>
+                <a href="https://www.datev-status.de/dsk/ext_site/app.html" class="button">
+                    <img src="https://i.imgur.com/zOT1B2W.png" alt="Bild 4">
+                    <div>DATEV Status</div>
+                </a>
+                <a href="https://www.sparkasse-wuppertal.de/de/home.html" class="button">
+                    <img src="https://i.imgur.com/FknJkFs.png" alt="Bild 5">
+                    <div>Sparkasse</div>
+                </a>
+                <a href="https://www.heise.de/" class="button">
+                    <img src="https://i.imgur.com/DCHE9dC.png" alt="Bild 6">
+                    <div>Heise Online</div>
+                </a>
+                <a href="https://www.youtube.com/" class="button">
+                    <img src="https://i.imgur.com/to7clq8.png" alt="Bild 7">
+                    <div>YouTube</div>
+                </a>
+                <a href="https://docs.google.com/" class="button">
+                    <img src="https://i.imgur.com/fiFJoxR.png" alt="Bild 8">
+                    <div>Google Docs</div>
+                </a>
+                <a href="https://drive.google.com/drive/home" class="button">
+                    <img src="https://i.imgur.com/SZuOMGe.png" alt="Bild 10">
+                    <div>Google Drive</div>
+                </a>
+                <a href="https://www.office.com/" class="button">
+                    <img src="https://i.imgur.com/14DOJ5c.png" alt="Bild 9">
+                    <div>Office</div>
+                </a>
+                <a href="https://web.servercampus.de/" class="button">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQgPwWKpyDPdM7WB03ECW3aJy-0ll2EOdLJ0w&s" alt="Bild 11">
+                    <div>Servercampus</div>
+                </a>
+                <a href="https://cp.24fire.de" class="button">
+                    <img src="https://i.imgur.com/eGgdHWS.png" alt="Bild 12">
+                    <div>24Fire</div>
+                </a>
+                <a href="http://ff-ronsdorf.de/" class="button">
+                    <img src="https://i.imgur.com/XWzD8VX.png" alt="Bild 13">
+                    <div>LZ Ronsdorf</div>
+                </a>
+                <a href="https://app.divera247.com/meldungen/alarmierungen.html" class="button">
+                    <img src="https://i.imgur.com/WUmneef.png" alt="Bild 14">
+                    <div>Divera 24/7</div>
+                </a>
+                <a href="#" class="button">
+                    <img src="https://i.imgur.com/StywQfU.png" alt="Bild 15">
+                    <div>Sharepoint</div>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Neues Layout für die Buttons unterhalb des aktuellen Layouts -->
+    <div class="button-container-bottom">
+        <div class="button-container">
+            <a href="https://geizhals.de" class="button">
+                <img src="https://gzhls.at/b/favicons/gh/gh-ogimage.png?ogircp" alt="Bild 1">
+                <div>Geizhals</div>
+            </a>
+            <a href="https://www.sparkasse-wuppertal.de/de/home.html" class="button">
+                <img src="https://i.imgur.com/FknJkFs.png" alt="Bild 2">
+                <div>Sparkasse</div>
+            </a>
+            <a href="https://www.leitstellenspiel.de/" class="button">
+                <img src="https://i.imgur.com/Y4eZbcP.png" alt="Bild 3">
+                <div>Leitstellenspiel</div>
+            </a>
+            <a href="https://example.com/4" class="button">
+                <img src="https://via.placeholder.com/80x80" alt="Bild 4">
+                <div>Website 4</div>
+            </a>
+            <a href="https://example.com/5" class="button">
+                <img src="https://via.placeholder.com/80x80" alt="Bild 5">
+                <div>Website 5</div>
+            </a>
+            <a href="https://example.com/6" class="button">
+                <img src="https://via.placeholder.com/80x80" alt="Bild 6">
+                <div>Website 6</div>
+            </a>
+            <a href="https://example.com/7" class="button">
+                <img src="https://via.placeholder.com/80x80" alt="Bild 7">
+                <div>Website 7</div>
+            </a>
+            <a href="https://example.com/8" class="button">
+                <img src="https://via.placeholder.com/80x80" alt="Bild 8">
+                <div>Website 8</div>
+            </a>
+            <a href="https://example.com/9" class="button">
+                <img src="https://via.placeholder.com/80x80" alt="Bild 9">
+                <div>Website 9</div>
+            </a>
+            <a href="https://imgur.com/user/philmaruhn35772/posts" class="button">
+                <img src="https://i.imgur.com/XfrUDYm.png" alt="Bild 10">
+                <div>Imgur</div>
+            </a>
+            <a href="https://dash.cloudflare.com/" class="button">
+                <img src="https://i.imgur.com/6pH61tF.png" alt="Bild 11">
+                <div>Cloudflare</div>
+            </a>
+            <a href="https://example.com/12" class="button">
+                <img src="https://via.placeholder.com/80x80" alt="Bild 12">
+                <div>Website 12</div>
+            </a>
+            <a href="https://example.com/13" class="button">
+                <img src="https://via.placeholder.com/80x80" alt="Bild 13">
+                <div>Website 13</div>
+            </a>
+            <a href="https://example.com/14" class="button">
+                <img src="https://via.placeholder.com/80x80" alt="Bild 14">
+                <div>Website 14</div>
+            </a>
+            <a href="https://example.com/15" class="button">
+                <img src="https://via.placeholder.com/80x80" alt="Bild 15">
+                <div>Website 15</div>
+            </a>
+            <a href="https://example.com/16" class="button">
+                <img src="https://via.placeholder.com/80x80" alt="Bild 16">
+                <div>Website 16</div>
+            </a>
+            <a href="https://example.com/17" class="button">
+                <img src="https://via.placeholder.com/80x80" alt="Bild 17">
+                <div>Website 17</div>
+            </a>
+            <a href="https://example.com/18" class="button">
+                <img src="https://via.placeholder.com/80x80" alt="Bild 18">
+                <div>Website 18</div>
+            </a>
+            <a href="https://example.com/19" class="button">
+                <img src="https://via.placeholder.com/80x80" alt="Bild 19">
+                <div>Website 19</div>
+            </a>
+            <a href="https://example.com/20" class="button">
+                <img src="https://via.placeholder.com/80x80" alt="Bild 20">
+                <div>Website 20</div>
+            </a>
+            <a href="https://example.com/21" class="button">
+                <img src="https://via.placeholder.com/80x80" alt="Bild 21">
+                <div>Website 21</div>
+            </a>
+            <a href="https://example.com/22" class="button">
+                <img src="https://via.placeholder.com/80x80" alt="Bild 22">
+                <div>Website 22</div>
+            </a>
+            <a href="https://example.com/23" class="button">
+                <img src="https://via.placeholder.com/80x80" alt="Bild 23">
+                <div>Website 23</div>
+            </a>
+            <a href="https://example.com/24" class="button">
+                <img src="https://via.placeholder.com/80x80" alt="Bild 24">
+                <div>Website 24</div>
+            </a>
+            <a href="https://example.com/25" class="button">
+                <img src="https://via.placeholder.com/80x80" alt="Bild 25">
+                <div>Website 25</div>
+            </a>
+            <a href="https://example.com/26" class="button">
+                <img src="https://via.placeholder.com/80x80" alt="Bild 26">
+                <div>Website 26</div>
+            </a>
+            <a href="https://example.com/27" class="button">
+                <img src="https://via.placeholder.com/80x80" alt="Bild 27">
+                <div>Website 27</div>
+            </a>
+        </div>
+    </div>
+
+    <script>
+        const searchEngineSelect = document.getElementById('search-engine');
+        const searchForm = document.getElementById('search-form');
+        const body = document.querySelector('.left-container'); // Nur der linke Bereich wird geändert
+
+        function updateBackground() {
+            const selectedOption = searchEngineSelect.options[searchEngineSelect.selectedIndex];
+            const backgroundImage = selectedOption.getAttribute('data-bg');
+            body.style.backgroundImage = `url(${backgroundImage})`;
+        }
+
+        searchEngineSelect.addEventListener('change', function() {
+            const selectedValue = this.value;
+
+            if (selectedValue.includes('geizhals.de')) {
+                searchForm.action = selectedValue + encodeURIComponent(document.querySelector('input[name="q"]').value);
+            } else {
+                searchForm.action = selectedValue;
+            }
+            updateBackground();
+        });
+
+        searchForm.addEventListener('submit', function() {
+            const selectedValue = searchEngineSelect.value;
+
+            if (selectedValue.includes('geizhals.de')) {
+                this.action = selectedValue + encodeURIComponent(document.querySelector('input[name="q"]').value);
+            }
+        });
+
+        window.addEventListener('load', function() {
+            updateBackground();
+        });
+    </script>
+</body>
+</html>
